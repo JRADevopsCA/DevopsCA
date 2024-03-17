@@ -5,7 +5,7 @@ sudo npm install -g pm2
 
 pm2 stop example_app
 
-cd SimpleApplication/
+cd DevopsCA/
 
 npm install
 
