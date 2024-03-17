@@ -4,12 +4,11 @@ workflows:
   version: 2
   build:
     jobs:
-      
-build:
+      build:
         filters:
           branches:
             only:
-main
+              main
 
 jobs:
   build:
@@ -18,18 +17,18 @@ jobs:
       
 image: circleci/node:10.16.3
   steps:
-checkout
-run:
+    checkout
+    run:
     name: update-npm
-    command: "sudo npm install -g npm@5"
-restore_cache:
-key: dependancy-cache-{{ checksum "package-locj.json" }}
-run:
-  name: isntall-npm
-  command: npm install
-save_cache:
-key: dependancy-cache-{{ checksum "package-lock.json" }}
-paths:
-./node_modules
+      command: "sudo npm install -g npm@5"
+    restore_cache:
+      key: dependancy-cache-{{ checksum "package-locj.json" }}
+    run:
+      name: isntall-npm
+      command: npm install
+    save_cache:
+      key: dependancy-cache-{{ checksum "package-lock.json" }}
+      paths:
+        ./node_modules
 
 #Circleci test
